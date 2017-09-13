@@ -42,11 +42,11 @@ public class OrderRequest   {
    * Gets or Sets product
    */
   public enum ProductEnum {
-    MYMONEY("My money"),
+    MYMONEY("MYMONEY"),
     
-    FAMILYALBUM("Family album"),
+    FAMILYALBUM("FAMILYALBUM"),
     
-    SCREENSAVER("Screensaver");
+    SCREENSAVER("SCREENSAVER");
 
     public String value;
 

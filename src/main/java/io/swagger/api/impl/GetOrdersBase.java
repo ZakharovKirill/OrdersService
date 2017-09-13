@@ -47,7 +47,7 @@ public class GetOrdersBase {
         }
     }
     
-    public void printResults(ResultSet rs) throws SQLException {
+    private void printResults(ResultSet rs) throws SQLException {
         while (rs.next()) {
                 productName = rs.getString("productName");
                 price = rs.getInt("price");
