@@ -73,11 +73,8 @@ public class OrderOperation {
             ResultSet rsCheckOrder = st.executeQuery(checkOrder);
             checkID = getID(rsCheckOrder, "order");
             if (checkID != -1) {
-                queryProductID = "SELECT * FROM Product WHERE productName = '"+product+"'";
-                ResultSet rsProduct = st.executeQuery(queryProductID);
-                productID = getID(rsProduct, "product");
-                
-                String queryUpdateOrder = "UPDATE Orders SET productID";
+                String queryUpdateOrder = "UPDATE Orders SET quantity = "+body.quantity+", discount = "+body.discount;
+                st.executeUpdate(queryUpdateOrder);
             }
             
         } catch (SQLException e) {
@@ -121,9 +118,8 @@ public class OrderOperation {
             System.out.println("Connected.");
             Statement st = con.createStatement();
             String query = "DELETE FROM Orders WHERE orderID = "+orderID;
-            Statement statement = con.createStatement();
             System.out.println(query);
-            statement.executeUpdate(query);
+            st.executeUpdate(query);
             System.out.println("Disconnected.");
             con.close();
         } catch (SQLException e) {

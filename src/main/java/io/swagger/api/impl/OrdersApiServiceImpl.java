@@ -25,30 +25,30 @@ public class OrdersApiServiceImpl extends OrdersApiService {
     public Response addOrder(OrderRequest body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.PostOrder(body);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "addOrder!")).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
     }
     @Override
     public Response deleteOrderByID(Long orderID, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.DeleteOrder(orderID);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "deleteOrderByID!")).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
     }
     @Override
     public Response getOrder(String filter, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.GetOrdersBase(true, 0xffffffffL);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "GetOrder")).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
     }
     @Override
     public Response getOrderById(Long orderID, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.GetOrdersBase(false, orderID);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "getOrderById!")).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
     }
     @Override
     public Response updateOrder(Long orderID, OrderRequest body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.UpdateOderID(orderID, body);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "updateOrder!")).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
     }
 }
