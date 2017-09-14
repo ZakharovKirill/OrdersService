@@ -13,6 +13,7 @@ public class ApiResponseMessage {
     int code;
     String type;
     String message;
+    String cardNo;
 
     public ApiResponseMessage(){}
 
@@ -39,6 +40,7 @@ public class ApiResponseMessage {
             break;
         }
         this.message = message;
+        
     }
 
     @XmlTransient
@@ -60,6 +62,14 @@ public class ApiResponseMessage {
 
     public String getMessage() {
         return message;
+    }
+    
+    public String getCardNo(){
+        return cardNo;
+    }
+    
+    public void setCardNo(String cardNo){
+        this.cardNo = cardNo;
     }
 
     public void setMessage(String message) {

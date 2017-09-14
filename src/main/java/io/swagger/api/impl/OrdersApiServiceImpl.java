@@ -2,6 +2,7 @@ package io.swagger.api.impl;
 
 import io.swagger.api.*;
 import io.swagger.model.*;
+import io.swagger.model.OrderRequest;
 
 import java.util.List;
 import io.swagger.api.NotFoundException;
@@ -23,30 +24,31 @@ public class OrdersApiServiceImpl extends OrdersApiService {
     @Override
     public Response addOrder(OrderRequest body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        PostOrder post = new PostOrder(body);
+        OrderOperation.PostOrder(body);
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "addOrder!")).build();
     }
     @Override
     public Response deleteOrderByID(Long orderID, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        DeleteOrder del = new DeleteOrder(orderID);
+        OrderOperation.DeleteOrder(orderID);
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "deleteOrderByID!")).build();
     }
     @Override
     public Response getOrder(String filter, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        GetOrdersBase Orders = new GetOrdersBase(true, 0xffffffffL);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "getOrder!")).build();
+        OrderOperation.GetOrdersBase(true, 0xffffffffL);
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "GetOrder")).build();
     }
     @Override
     public Response getOrderById(Long orderID, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        GetOrdersBase OrderById = new GetOrdersBase(false, orderID);
+        OrderOperation.GetOrdersBase(false, orderID);
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "getOrderById!")).build();
     }
     @Override
     public Response updateOrder(Long orderID, OrderRequest body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
+        OrderOperation.UpdateOderID(orderID, body);
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "updateOrder!")).build();
     }
 }

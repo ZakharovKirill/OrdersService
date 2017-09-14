@@ -80,8 +80,8 @@ public class OrderRequest   {
   @JsonProperty("price")
   public Integer price = null;
 
-  @JsonProperty("discount in %")
-  public Integer discountIn_ = null;
+  @JsonProperty("discount")
+  public Integer discount = null;
 
   @JsonProperty("total")
   public Integer total = null;
@@ -108,11 +108,11 @@ public class OrderRequest   {
    * Gets or Sets card
    */
   public enum CardEnum {
-    VISA("Visa"),
+    VISA("VISA"),
     
-    MASTERCARD("MasterCard"),
+    MASTERCARD("MASTERCARD"),
     
-    AMERICAN_EXPRESS("American Express");
+    AMERICAN_EXPRESS("AMERICAN_EXPRESS");
 
     public String value;
 
@@ -141,7 +141,7 @@ public class OrderRequest   {
   public CardEnum card = null;
 
   @JsonProperty("cardNo")
-  public Integer cardNo = null;
+  public static String cardNo = null;
 
   @JsonProperty("expirationDate")
   public Date expirationDate = null;
@@ -200,8 +200,8 @@ public class OrderRequest   {
     this.price = price;
   }
 
-  public OrderRequest discountIn_(Integer discountIn_) {
-    this.discountIn_ = discountIn_;
+  public OrderRequest discount(Integer discount) {
+    this.discount = discount;
     return this;
   }
 
@@ -210,12 +210,12 @@ public class OrderRequest   {
    * @return discountIn_
   **/
   @ApiModelProperty(value = "")
-  public Integer getDiscountIn_() {
-    return discountIn_;
+  public Integer getDiscount() {
+    return discount;
   }
 
-  public void setDiscountIn_(Integer discountIn_) {
-    this.discountIn_ = discountIn_;
+  public void setDiscount(Integer discount) {
+    this.discount = discount;
   }
 
   public OrderRequest total(Integer total) {
@@ -362,7 +362,7 @@ public class OrderRequest   {
     this.card = card;
   }
 
-  public OrderRequest cardNo(Integer cardNo) {
+  public OrderRequest cardNo(String cardNo) {
     this.cardNo = cardNo;
     return this;
   }
@@ -372,11 +372,11 @@ public class OrderRequest   {
    * @return cardNo
   **/
   @ApiModelProperty(value = "")
-  public Integer getCardNo() {
+  public String getCardNo() {
     return cardNo;
   }
 
-  public void setCardNo(Integer cardNo) {
+  public void setCardNo(String cardNo) {
     this.cardNo = cardNo;
   }
 
@@ -411,7 +411,7 @@ public class OrderRequest   {
     return Objects.equals(this.product, orderRequest.product) &&
         Objects.equals(this.quantity, orderRequest.quantity) &&
         Objects.equals(this.price, orderRequest.price) &&
-        Objects.equals(this.discountIn_, orderRequest.discountIn_) &&
+        Objects.equals(this.discount, orderRequest.discount) &&
         Objects.equals(this.total, orderRequest.total) &&
         Objects.equals(this.date, orderRequest.date) &&
         Objects.equals(this.customerName, orderRequest.customerName) &&
@@ -426,7 +426,7 @@ public class OrderRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(product, quantity, price, discountIn_, total, date, customerName, street, city, state, zip, card, cardNo, expirationDate);
+    return Objects.hash(product, quantity, price, discount, total, date, customerName, street, city, state, zip, card, cardNo, expirationDate);
   }
 
 
@@ -438,7 +438,7 @@ public class OrderRequest   {
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
-    sb.append("    discountIn_: ").append(toIndentedString(discountIn_)).append("\n");
+    sb.append("    discount").append(toIndentedString(discount)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
