@@ -54,6 +54,14 @@ public class ApiResponseMessage {
     @XmlTransient
     
     
+    public int getDiscount(){
+        return discount;
+    }
+    
+    public void setDiscount(int discount){
+        this.discount = OrderOperation.discount;
+    }
+    
     public int getZip(){
         return zip;
     }

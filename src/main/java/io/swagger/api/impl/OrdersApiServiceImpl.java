@@ -1,6 +1,7 @@
 package io.swagger.api.impl;
 
 import io.swagger.api.*;
+import static io.swagger.api.ApiResponseMessage.WARNING;
 import io.swagger.model.*;
 import io.swagger.model.OrderRequest;
 
@@ -37,7 +38,7 @@ public class OrdersApiServiceImpl extends OrdersApiService {
     public Response getOrder(String filter, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         OrderOperation.GetOrdersBase(true, 0xffffffffL);
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK)).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.WARNING)).build();
     }
     @Override
     public Response getOrderById(Long orderID, SecurityContext securityContext) throws NotFoundException {
